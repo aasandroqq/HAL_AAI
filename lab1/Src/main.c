@@ -2,9 +2,9 @@
 
 SPI_HandleTypeDef hspi1;
 
-uint8_t data[] = {0x02, 0x04, 0x06, 0x08, 0x10, 0x01, 0x05, 0x09, 0x08, 0x07};
+uint8_t data[] = {0x04, 0x02, 0x01, 0x07, 0x10, 0x01, 0x05, 0x09, 0x08, 0x07};
 uint8_t rdata[10] = {0};
-uint8_t status,status1;
+uint8_t status;
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -22,7 +22,6 @@ int main(void)
 	
 	status = read_status_register();
 	write_status_register(0x00);
-	status1 = read_status_register();
 	
 	full_clear();
 	write_array_with_aai(0x000000,data,10);
